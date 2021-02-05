@@ -80,6 +80,7 @@ class _CategoryPageState extends State<CategoryPage> {
               ),
               Container(
                 padding: EdgeInsets.all(16),
+                width: MediaQuery.of(context).size.width,
                 child: RaisedButton(
                   child: Text("Tambah Kategori"),
                   onPressed: () => Navigator.push(context, MaterialPageRoute(

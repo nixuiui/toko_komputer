@@ -26,6 +26,8 @@ class Login extends AuthEvent {
   List<Object> get props => [username, password];
 }
 
+class Logout extends AuthEvent {}
+
 class Register extends AuthEvent {
   final AccountModel data;
 
@@ -62,5 +64,3 @@ class UpdateProfile extends AuthEvent {
   @override
   List<Object> get props => [data];
 }
-
-class Logout extends AuthEvent {}

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:toko_komputer/helper/bloc_delegate.dart';
 import 'package:toko_komputer/ui/pages/splash_screen.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocDelegate();
   runApp(MyApp());
 }
 

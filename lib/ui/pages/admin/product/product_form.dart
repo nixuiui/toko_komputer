@@ -143,24 +143,26 @@ class _ProductFormState extends State<ProductForm> {
                   ),
                   SizedBox(height: 16),
                   Text("Kategori"),
-                  GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () => selectCategory(),
-                    child: Container(
-                      height: 50,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(child: Text(category != null ? category?.name : "Pilih Kategori")),
-                          Icon(Icons.arrow_drop_down)
-                        ],
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: Colors.grey[300]))
-                      ),
+                  DropdownButton<OptionsModel<Category>>(
+                    value: category,
+                    iconSize: 24,
+                    elevation: 16,
+                    style: TextStyle(color: Colors.deepPurple),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.deepPurpleAccent,
                     ),
+                    onChanged: (OptionsModel<Category> value) {
+                      setState(() {
+                        category = value;
+                      });
+                    },
+                    items: categories.map<DropdownMenuItem<OptionsModel<Category>>>((OptionsModel<Category> value) {
+                      return DropdownMenuItem<OptionsModel<Category>>(
+                        value: value,
+                        child: Text(value.name),
+                      );
+                    }).toList(),
                   ),
                   SizedBox(height: 16),
                   Text("Deskripsi"),

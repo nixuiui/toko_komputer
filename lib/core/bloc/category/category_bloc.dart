@@ -6,8 +6,6 @@ import 'package:toko_komputer/core/bloc/category/category_state.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   final api = CategoryApi();
-  int page = 1;
-  int limit = 10;
 
   CategoryBloc() : super(CategoryUninitialized());
 

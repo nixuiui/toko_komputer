@@ -17,16 +17,6 @@ class SharedPreferencesHelper {
     return prefs.getBool(IS_AUTHENTICATED) ?? false;
   }
   
-  static setAccount(String data) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(ACCOUNT, data);
-  }
-  
-  static Future<String> getAccount() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(ACCOUNT);
-  }
-  
   static setApiToken(String data) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(API_TOKEN, data);
@@ -36,15 +26,25 @@ class SharedPreferencesHelper {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString(API_TOKEN);
   }
-
-  static setCart(String data) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(CART, data);
-  }
   
   static clear() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
   }
+  
+  // static setAccount(String data) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString(ACCOUNT, data);
+  // }
+  
+  // static Future<String> getAccount() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   return prefs.getString(ACCOUNT);
+  // }
+
+  // static setCart(String data) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString(CART, data);
+  // }
   
 }

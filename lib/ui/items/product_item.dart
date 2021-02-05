@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:toko_komputer/core/model/product_model.dart';
+import 'package:indonesia/indonesia.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
     Key key,
+    this.product
   }) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +16,8 @@ class ProductItem extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Row(
         children: [
-          Image.asset(
-            "assets/mouse.jpg",
+          Image.network(
+            product.images.length > 0 ? product.images[0] : "",
             width: 100,
             height: 100,
             fit: BoxFit.cover,
@@ -23,14 +28,14 @@ class ProductItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Mouse",
+                  product.name,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700
                   ),
                 ),
                 Text(
-                  "Rp 20.000",
+                  rupiah(product.sellPrice),
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700

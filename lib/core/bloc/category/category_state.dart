@@ -18,9 +18,6 @@ class CategoryLoaded extends CategoryState {
   const CategoryLoaded({
     @required this.data,
   });
-
-  @override
-  List<Object> get props => [data];
 }
 
 class CategoryCreated extends CategoryState {}
